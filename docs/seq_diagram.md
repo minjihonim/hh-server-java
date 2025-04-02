@@ -37,7 +37,7 @@ deactivate C_CASH
 ---
 
 
-## 2.잔액조회
+## 2. 잔액조회
 
 ```mermaid
 %%{init: {"theme":"forest","logLevel":"fatal","securityLevel":"strict","startOnLoad":true,"arrowMarkerAbsolute":false,"htmlLabels":true,"sequence":{"useMaxWidth":true,"actorMargin":80,"mirrorActors":false,"showSequenceNumbers":true}}}%%
