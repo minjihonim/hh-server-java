@@ -1,5 +1,6 @@
 package kr.hhplus.be.server.order.presentation.api;
 
+import io.swagger.v3.oas.annotations.Operation;
 import kr.hhplus.be.server.order.presentation.dto.Order;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,6 +18,7 @@ public class OrderController {
      * @throws Exception
      */
     @PostMapping("/request")
+    @Operation(summary = "주문 처리")
     public Order requestOrder(@RequestBody Order param) throws Exception {
         return new Order().mockOrder(param);
     }

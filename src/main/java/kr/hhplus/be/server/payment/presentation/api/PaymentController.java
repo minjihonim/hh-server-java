@@ -1,5 +1,6 @@
 package kr.hhplus.be.server.payment.presentation.api;
 
+import io.swagger.v3.oas.annotations.Operation;
 import kr.hhplus.be.server.payment.presentation.dto.Payment;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,6 +18,7 @@ public class PaymentController {
      * @throws Exception
      */
     @PostMapping("/request")
+    @Operation(summary = "결제 처리")
     public Payment requestPayment(@RequestBody Payment param) throws Exception {
         return new Payment().mockPayment(param);
     }

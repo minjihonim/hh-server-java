@@ -1,5 +1,6 @@
 package kr.hhplus.be.server.coupon.presentation.api;
 
+import io.swagger.v3.oas.annotations.Operation;
 import kr.hhplus.be.server.coupon.presentation.dto.Coupon;
 import kr.hhplus.be.server.user.presentation.dto.User;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +19,7 @@ public class CouponController {
      * @throws Exception
      */
     @GetMapping("/{userId}")
+    @Operation(summary = "선착순 쿠폰 발급")
     public User getCoupon(@PathVariable("userId") long userId) throws Exception {
         return new Coupon().mockCoupon(userId);
     }

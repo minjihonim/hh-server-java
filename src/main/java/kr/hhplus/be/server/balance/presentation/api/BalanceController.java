@@ -1,5 +1,6 @@
 package kr.hhplus.be.server.balance.presentation.api;
 
+import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import kr.hhplus.be.server.balance.presentation.dto.BalanceRequest;
 import kr.hhplus.be.server.balance.presentation.dto.BalanceResponse;
@@ -15,6 +16,7 @@ public class BalanceController {
      * @return
      */
     @GetMapping("/{id}")
+    @Operation(summary = "사용자 잔액 조회")
     public BalanceResponse getPoint(@PathVariable("id") long id) {
         return new BalanceResponse().mockData(id);
     }
@@ -26,6 +28,7 @@ public class BalanceController {
      * @throws Exception
      */
     @PostMapping(value = "/charge")
+    @Operation(summary = "사용자 잔액 충전")
     public BalanceResponse charge(@Valid @RequestBody BalanceRequest param) throws Exception {
         return new BalanceResponse().mockCharge(param);
     }

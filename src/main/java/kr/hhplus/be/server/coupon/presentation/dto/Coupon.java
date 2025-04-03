@@ -1,5 +1,6 @@
 package kr.hhplus.be.server.coupon.presentation.dto;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import kr.hhplus.be.server.user.presentation.dto.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,8 +12,11 @@ import java.util.concurrent.ThreadLocalRandom;
 @AllArgsConstructor
 @Getter
 public class Coupon {
+    @Schema(description = "쿠폰ID", example = "1")
     private long id;
+    @Schema(description = "할인율", example = "10")
     private long discountRate;
+    @Schema(description = "반출 상태", example = "0")
     private int status;
 
     public User mockCoupon(long userId) throws Exception {
