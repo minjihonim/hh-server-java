@@ -11,4 +11,8 @@ public class ProductRepository {
         List<Product> result = new ArrayList<>();
         return result;
     }
+
+    public Integer getProductCnt(Product product) {
+        return 1;
+    }
 }

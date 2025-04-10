@@ -24,6 +24,10 @@ public class Product {
 
     private LocalDateTime updateDate;
 
+    public Product() {
+
+    }
+
     public ProductResponse fromProduct(Product product) {
         ProductResponse productResponse = new ProductResponse();
         productResponse.setId(product.getId());

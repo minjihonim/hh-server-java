@@ -43,9 +43,9 @@ public class ProductController {
      * @return
      * @throws Exception
      */
-    @GetMapping("/popular/list")
-    @Operation(summary = "인기 상품 조회")
-    public List<ProductRequest> getPopularProductList() throws Exception {
-        return new ProductRequest().mockPopularProductList();
-    }
+//    @GetMapping("/popular/list")
+//    @Operation(summary = "인기 상품 조회")
+//    public List<ProductRequest> getPopularProductList() throws Exception {
+//        return new ProductRequest().mockPopularProductList();
+//    }
 }
