@@ -32,8 +32,14 @@ dependencyManagement {
 dependencies {
     // Spring
 	implementation("org.springframework.boot:spring-boot-starter-actuator")
-	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+//	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.springframework.boot:spring-boot-starter-web")
+	implementation("org.springframework.boot:spring-boot-starter-validation")
+	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.5.0")
+
+	// lombok
+	// https://mvnrepository.com/artifact/org.projectlombok/lombok
+	implementation("org.projectlombok:lombok:1.18.38")
 
     // DB
 	runtimeOnly("com.mysql:mysql-connector-j")
