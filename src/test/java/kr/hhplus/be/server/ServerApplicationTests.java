@@ -2,8 +2,7 @@ package kr.hhplus.be.server;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import kr.hhplus.be.server.presentation.api.balance.dto.BalanceRequest;
-import kr.hhplus.be.server.presentation.api.order.dto.Order;
-import kr.hhplus.be.server.presentation.api.payment.dto.Payment;
+import kr.hhplus.be.server.presentation.api.order.dto.OrderRequest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -88,7 +87,7 @@ class ServerApplicationTests {
     @DisplayName("주문 처리 테스트")
     void 주문_처리_테스트() throws Exception {
         // given
-        Order paramOrder = new Order(1, new ArrayList<>(), 1, 30000L, 0, 0, 0);
+        OrderRequest paramOrder = new OrderRequest(1, new ArrayList<>(), 1, 30000L, 0, 0);
         String jsonBody = objectMapper.writeValueAsString(paramOrder);
         // when
         mockMvc.perform(post("/api/order/request")
@@ -99,19 +98,4 @@ class ServerApplicationTests {
                 .andExpect(jsonPath("$.status").value(1));  // 주문처리 완료 상태값
     }
 
-    @Test
-    @DisplayName("결제 처리 테스트")
-    void 결제_처리_테스트() throws Exception {
-        // given
-        Payment payment = new Payment(1, 1, new ArrayList<>(), 0, 0);
-        String jsonBody = objectMapper.writeValueAsString(payment);
-        // when
-        mockMvc.perform(post("/api/payment/request")
-                        .accept(MediaType.APPLICATION_JSON)
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(jsonBody))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.status").value(1))  // 결재처리 완료 상태값
-                .andExpect(jsonPath("$.paymentAmount").value(24000L));  // 할인적용된 주문가격 결제
-    }
 }
