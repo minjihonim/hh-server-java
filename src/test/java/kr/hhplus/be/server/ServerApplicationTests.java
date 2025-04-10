@@ -1,9 +1,9 @@
 package kr.hhplus.be.server;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import kr.hhplus.be.server.balance.presentation.dto.BalanceRequest;
-import kr.hhplus.be.server.order.presentation.dto.Order;
-import kr.hhplus.be.server.payment.presentation.dto.Payment;
+import kr.hhplus.be.server.presentation.api.balance.dto.BalanceRequest;
+import kr.hhplus.be.server.presentation.api.order.dto.Order;
+import kr.hhplus.be.server.presentation.api.payment.dto.Payment;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +36,7 @@ class ServerApplicationTests {
     @DisplayName("잔액충전 테스트")
     void 잔액_충전_mock_test() throws Exception {
         // given
-        BalanceRequest req = new BalanceRequest(1, 20000L);
+        BalanceRequest req = new BalanceRequest(1L, 20000L);
         String jsonBody = objectMapper.writeValueAsString(req);
         // when
         mockMvc.perform(post("/api/balance/charge")
