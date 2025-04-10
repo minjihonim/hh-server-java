@@ -2,6 +2,7 @@ package kr.hhplus.be.server.domain.balance;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import kr.hhplus.be.server.presentation.api.balance.dto.BalanceResponse;
 import lombok.Getter;
 
 import java.time.LocalDateTime;
@@ -35,5 +36,12 @@ public class Balance {
         this.amount = this.amount + amount;
         this.registerDate = LocalDateTime.now();
         this.updateDate = LocalDateTime.now();
+    }
+
+    public BalanceResponse fromBalance(Balance balance) {
+        BalanceResponse response = new BalanceResponse();
+        response.setUserId(balance.getUserId());
+        response.setBalance(balance.getAmount());
+        return response;
     }
 }

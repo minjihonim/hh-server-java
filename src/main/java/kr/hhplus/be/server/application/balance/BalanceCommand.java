@@ -8,5 +8,5 @@ public class BalanceCommand {
     private long userId;
 
     private long amount;
-
+    
 }

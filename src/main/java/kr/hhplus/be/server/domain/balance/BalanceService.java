@@ -1,5 +1,6 @@
 package kr.hhplus.be.server.domain.balance;
 
+import kr.hhplus.be.server.presentation.api.balance.dto.BalanceResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -21,4 +22,8 @@ public class BalanceService {
         balanceHistoryRepository.save(balanceHistory);
     }
 
+    public Balance getPoint(Long userId) {
+        // 유저 보유금액 조회
+        return balanceRepository.getUserBalance(userId);
+    }
 }

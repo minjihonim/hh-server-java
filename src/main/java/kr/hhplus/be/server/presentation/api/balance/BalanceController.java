@@ -4,6 +4,8 @@ import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import kr.hhplus.be.server.application.balance.BalanceCommand;
 import kr.hhplus.be.server.application.balance.BalanceFacade;
+import kr.hhplus.be.server.domain.balance.Balance;
+import kr.hhplus.be.server.domain.balance.BalanceService;
 import kr.hhplus.be.server.presentation.api.balance.dto.BalanceRequest;
 import kr.hhplus.be.server.presentation.api.balance.dto.BalanceResponse;
 import lombok.NoArgsConstructor;
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 public class BalanceController {
 
     private final BalanceFacade balanceFacade;
+    private final BalanceService balanceService;
 
     /**
      * 잔액 조회
@@ -24,8 +27,10 @@ public class BalanceController {
      */
     @GetMapping("/{id}")
     @Operation(summary = "사용자 잔액 조회")
-    public BalanceResponse getPoint(@PathVariable("id") long id) {
-        return new BalanceResponse().mockData(id);
+    public BalanceResponse getPoint(@PathVariable("id") Long id) {
+        Balance balance = balanceService.getPoint(id);
+        BalanceResponse response = balance.fromBalance(balance);
+        return response;
     }
 
     /**
