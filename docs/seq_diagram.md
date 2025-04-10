@@ -1,4 +1,4 @@
-## e-커머스 서비스 시퀀스 다이어그램
+    ## e-커머스 서비스 시퀀스 다이어그램
 
 ## 목차
 
@@ -18,17 +18,36 @@
 ## 1. 잔액충전
 
 ```mermaid
-%%{init: {"theme":"forest","logLevel":"fatal","securityLevel":"strict","startOnLoad":true,"arrowMarkerAbsolute":false,"htmlLabels":true,"sequence":{"useMaxWidth":true,"actorMargin":80,"mirrorActors":false,"showSequenceNumbers":true}}}%%
+%%{init: {"theme":"forest"}}%%
 sequenceDiagram
-
-participant C_CLIENT as 사용자
-participant C_CASH as 잔액
+autonumber
+actor C_CLIENT as 클라이언트
+participant C_CASH as 잔고
+participant C_CASH_HISTORY as 잔고이력
+participant C_USER as 사용자
 
 
 %% 잔액충전
 C_CLIENT ->> C_CASH : 잔액충전 요청
 activate C_CASH
-C_CASH ->> C_CLIENT : 잔액충전 응답
+C_CASH ->> C_USER: 사용자 조회
+activate C_USER
+opt 사용자 존재 X
+    C_USER ->> C_CLIENT : 사용자 미존재 예외
+end
+C_USER ->> C_CASH : 사용자 조회 완료
+deactivate C_USER
+opt 최대잔고 초과
+    C_CASH ->> C_CLIENT: 최대 잔액 초과 예외
+end
+C_CASH ->> C_CASH: 잔액 충전
+
+C_CASH ->> C_CASH_HISTORY: 잔액 충전 이력 저장
+activate C_CASH_HISTORY
+C_CASH_HISTORY ->> C_CASH: 잔액 충전 이력 저장 완료
+deactivate C_CASH_HISTORY
+
+C_CASH ->> C_CLIENT : 잔액충전 성공
 deactivate C_CASH
 ```
 
@@ -40,17 +59,26 @@ deactivate C_CASH
 ## 2. 잔액조회
 
 ```mermaid
-%%{init: {"theme":"forest","logLevel":"fatal","securityLevel":"strict","startOnLoad":true,"arrowMarkerAbsolute":false,"htmlLabels":true,"sequence":{"useMaxWidth":true,"actorMargin":80,"mirrorActors":false,"showSequenceNumbers":true}}}%%
+%%{init: {"theme":"forest"}}%%
 sequenceDiagram
-
-participant C_CLIENT as 사용자
-participant C_CASH as 잔액
+autonumber
+actor C_CLIENT as 클라이언트
+participant C_CASH as 잔고
+participant C_USER as 사용자
 
 
 %% 잔액조회
 C_CLIENT ->> C_CASH : 잔액조회 요청
 activate C_CASH
-C_CASH ->> C_CLIENT : 잔액조회 응답
+C_CASH ->> C_USER: 사용자 조회
+activate C_USER
+opt 사용자 존재 X
+    C_USER ->> C_CLIENT : 사용자 미존재 예외
+end
+C_USER ->> C_CASH : 사용자 조회 완료
+deactivate C_USER
+C_CASH ->> C_CASH: 잔액 조회
+C_CASH ->> C_CLIENT : 잔액조회 성공
 deactivate C_CASH
 
 ```
@@ -61,12 +89,11 @@ deactivate C_CASH
 
 ## 3. 상품조회
 ```mermaid
-%%{init: {"theme":"forest","logLevel":"fatal","securityLevel":"strict","startOnLoad":true,"arrowMarkerAbsolute":false,"htmlLabels":true,"sequence":{"useMaxWidth":true,"actorMargin":80,"mirrorActors":false,"showSequenceNumbers":true}}}%%
+%%{init: {"theme":"forest"}}%%
 sequenceDiagram
-
-participant C_CLIENT as 사용자
+autonumber
+actor C_CLIENT as 클라이언트
 participant C_PRODUCTION as 상품
-
 
 %% 상품조회
 C_CLIENT ->> C_PRODUCTION : 상품조회 요청
@@ -82,24 +109,30 @@ deactivate C_PRODUCTION
 
 ## 4. 주문
 ```mermaid
-%%{init: {"theme":"forest","logLevel":"fatal","securityLevel":"strict","startOnLoad":true,"arrowMarkerAbsolute":false,"htmlLabels":true,"sequence":{"useMaxWidth":true,"actorMargin":80,"mirrorActors":false,"showSequenceNumbers":true}}}%%
+%%{init: {"theme":"forest"}}%%
 sequenceDiagram
-
-participant C_CLIENT as 사용자
-participant C_PRODUCTION as 상품
+autonumber
+actor C_CLIENT as 클라이언트
 participant C_ORDER as 주문
+participant C_PRODUCTION as 상품
+participant C_USER as 사용자
+
 
 %% 주문
-C_CLIENT ->> C_PRODUCTION : 상품조회 요청
-activate C_PRODUCTION
-C_PRODUCTION ->> C_CLIENT : 상품조회 응답<br/>- 재고
-deactivate C_PRODUCTION
-alt 상품재고>=1
-C_CLIENT ->> C_ORDER : 주문요청
+C_CLIENT ->> C_ORDER : 주문 요청
 activate C_ORDER
-C_ORDER ->> C_CLIENT: 주문응답
-deactivate C_ORDER
+C_ORDER ->> C_USER: 사용자 조회
+activate C_USER
+opt 사용자 존재 X
+    C_USER ->> C_CLIENT : 사용자 미존재 예외
 end
+C_USER ->> C_ORDER : 사용자 조회 완료
+deactivate C_USER
+C_ORDER ->> C_PRODUCTION: 상품 조회
+activate C_PRODUCTION
+
+deactivate C_PRODUCTION
+deactivate C_ORDER
 ```
 <div style="page-break-after: always;"></div>
 
