@@ -1,8 +1,8 @@
 package kr.hhplus.be.server.unit;
 
-import kr.hhplus.be.server.domain.payment.Payment;
-import kr.hhplus.be.server.domain.payment.PaymentRepository;
-import kr.hhplus.be.server.domain.payment.PaymentService;
+import kr.hhplus.be.server.domain.payment.model.Payment;
+import kr.hhplus.be.server.domain.payment.repository.PaymentRepository;
+import kr.hhplus.be.server.domain.payment.service.PaymentService;
 import kr.hhplus.be.server.domain.payment.type.PaymentType;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -25,8 +25,7 @@ public class PaymentUnitTest {
     public void testPayment() {
         // given
         Long orderId = 1L;
-        Long userId = 1L;
-        Payment payment = new Payment(orderId, userId, 20000L, PaymentType.FINISH.getMessage());
+        Payment payment = new Payment(orderId, 20000L, PaymentType.FINISH.getMessage());
 
         // when
         paymentService.requestPayment(payment);

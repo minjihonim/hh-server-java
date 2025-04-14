@@ -1,10 +1,8 @@
 package kr.hhplus.be.server.unit;
 
-import kr.hhplus.be.server.domain.order.Order;
-import kr.hhplus.be.server.domain.order.OrderRepository;
-import kr.hhplus.be.server.domain.order.OrderService;
-import kr.hhplus.be.server.domain.payment.PaymentRepository;
-import kr.hhplus.be.server.domain.payment.PaymentService;
+import kr.hhplus.be.server.domain.order.model.Order;
+import kr.hhplus.be.server.domain.order.repository.OrderRepository;
+import kr.hhplus.be.server.domain.order.service.OrderService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

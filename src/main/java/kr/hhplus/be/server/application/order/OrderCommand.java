@@ -1,7 +1,7 @@
 package kr.hhplus.be.server.application.order;
 
-import kr.hhplus.be.server.domain.order.Order;
-import kr.hhplus.be.server.domain.payment.Payment;
+import kr.hhplus.be.server.domain.order.model.Order;
+import kr.hhplus.be.server.domain.payment.model.Payment;
 import kr.hhplus.be.server.domain.payment.type.PaymentType;
 import kr.hhplus.be.server.presentation.api.product.dto.ProductRequest;
 import lombok.Data;
@@ -24,7 +24,7 @@ public class OrderCommand {
     private Long finalOrderPrice;
 
     public Payment toPayment() {
-        Payment payment = new Payment(this.id, this.userId, this.finalOrderPrice, PaymentType.FINISH.getMessage());
+        Payment payment = new Payment(this.id, this.finalOrderPrice, PaymentType.FINISH.getMessage());
         return payment;
     }
 

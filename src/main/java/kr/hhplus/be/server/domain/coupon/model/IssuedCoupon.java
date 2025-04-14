@@ -1,4 +1,4 @@
-package kr.hhplus.be.server.domain.coupon;
+package kr.hhplus.be.server.domain.coupon.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Getter
-public class Coupon {
+public class IssuedCoupon {
 
     @Id
     private Long id;
@@ -18,20 +18,18 @@ public class Coupon {
 
     private Long couponId;
 
-    private LocalDate expirationDate;
-
-    private LocalDateTime usedDate;
+    private LocalDate usedDate;
 
     private LocalDateTime registerDate;
 
     private LocalDateTime updateDate;
 
-    public Coupon(Long userId, Long couponId) {
+    public IssuedCoupon(Long userId, Long couponId) {
         this.userId = userId;
         this.couponId = couponId;
     }
 
-    public Coupon() {
+    public IssuedCoupon() {
 
     }
 

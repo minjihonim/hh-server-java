@@ -1,11 +1,11 @@
 package kr.hhplus.be.server.unit;
 
-import kr.hhplus.be.server.domain.balance.Balance;
-import kr.hhplus.be.server.domain.balance.BalanceHistoryRepository;
-import kr.hhplus.be.server.domain.balance.BalanceRepository;
-import kr.hhplus.be.server.domain.balance.BalanceService;
-import kr.hhplus.be.server.domain.user.UserRepository;
-import kr.hhplus.be.server.domain.user.UserService;
+import kr.hhplus.be.server.domain.balance.model.Balance;
+import kr.hhplus.be.server.domain.balance.repository.BalanceHistoryRepository;
+import kr.hhplus.be.server.domain.balance.repository.BalanceRepository;
+import kr.hhplus.be.server.domain.balance.service.BalanceService;
+import kr.hhplus.be.server.domain.user.repository.UserRepository;
+import kr.hhplus.be.server.domain.user.service.UserService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

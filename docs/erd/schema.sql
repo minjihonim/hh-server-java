@@ -38,7 +38,7 @@ CREATE TABLE `user_point_history` (
 
 -- 쿠폰 테이블
 -- 시스템에서 제공하는 쿠폰 정보를 저장합니다.
-CREATE TABLE `coupon` (
+CREATE TABLE `coupon2` (
     `id` BIGINT NOT NULL AUTO_INCREMENT COMMENT '쿠폰 ID',
     `name` VARCHAR(100) NOT NULL COMMENT '쿠폰 이름',
     `discount_amount` INT NOT NULL COMMENT '할인 금액',
@@ -66,7 +66,7 @@ CREATE TABLE `issued_coupon` (
     INDEX `idx_user_id` (`user_id`),
     INDEX `idx_coupon_id` (`coupon_id`),
     CONSTRAINT `fk_issued_coupon_user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
-    CONSTRAINT `fk_issued_coupon_coupon_id` FOREIGN KEY (`coupon_id`) REFERENCES `coupon` (`id`)
+    CONSTRAINT `fk_issued_coupon_coupon_id` FOREIGN KEY (`coupon_id`) REFERENCES `coupon2` (`id`)
 ) COMMENT='발급된 쿠폰 테이블';
 
 -- 상품 테이블

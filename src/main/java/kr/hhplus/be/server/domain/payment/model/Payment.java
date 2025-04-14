@@ -1,6 +1,5 @@
-package kr.hhplus.be.server.domain.payment;
+package kr.hhplus.be.server.domain.payment.model;
 
-import jakarta.annotation.Nullable;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.Getter;
@@ -15,9 +14,7 @@ public class Payment {
 
     private Long orderId;
 
-    private Long userId;
-
-    private Long amount;
+    private Long price;
 
     private String status;
 
@@ -27,12 +24,10 @@ public class Payment {
 
     private LocalDateTime updateDate;
 
-    public Payment(Long orderId, Long userId, Long amount, String stauts) {
+    public Payment(Long orderId, Long price, String stauts) {
         this.orderId = orderId;
-        this.userId = userId;
-        this.amount = amount;
+        this.price = price;
         this.status = stauts;
-        this.registerDate = LocalDateTime.now();
     }
 
     public Payment() {

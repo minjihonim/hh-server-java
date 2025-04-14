@@ -28,7 +28,7 @@
 
 **설명**: 유저의 잔액 변동 내역을 기록하는 테이블입니다.
 
-### 3. 쿠폰 정보 테이블 (coupon)
+### 3. 쿠폰 정보 테이블 (coupon2)
 
 | 컬럼명           | 데이터 타입  | 설명           | 제약조건                                      |
 | ---------------- | ------------ | -------------- | --------------------------------------------- |
@@ -51,7 +51,7 @@
 | --------------- | ----------- | ------------------ | --------------------------------------------- |
 | id              | BIGINT      | 유저 쿠폰 ID       | PRIMARY KEY, AUTO_INCREMENT                   |
 | user_id         | BIGINT      | 유저 ID            | NOT NULL, FOREIGN KEY(user.id), INDEX         |
-| coupon_id       | BIGINT      | 쿠폰 ID            | NOT NULL, FOREIGN KEY(coupon.id), INDEX       |
+| coupon_id       | BIGINT      | 쿠폰 ID            | NOT NULL, FOREIGN KEY(coupon2.id), INDEX       |
 | expiration_date | DATE        | 쿠폰 만료 기간     | NOT NULL                                      |
 | used_at         | TIMESTAMP   | 사용 일시          | NULL 허용                                     |
 | created_at      | TIMESTAMP   | 생성 시간 (발급일) | NOT NULL, DEFAULT CURRENT_TIMESTAMP           |

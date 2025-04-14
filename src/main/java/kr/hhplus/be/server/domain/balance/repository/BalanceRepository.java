@@ -1,5 +1,6 @@
-package kr.hhplus.be.server.domain.balance;
+package kr.hhplus.be.server.domain.balance.repository;
 
+import kr.hhplus.be.server.domain.balance.model.Balance;
 import org.springframework.stereotype.Repository;
 
 @Repository

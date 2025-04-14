@@ -4,11 +4,10 @@ import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import kr.hhplus.be.server.application.balance.BalanceCommand;
 import kr.hhplus.be.server.application.balance.BalanceFacade;
-import kr.hhplus.be.server.domain.balance.Balance;
-import kr.hhplus.be.server.domain.balance.BalanceService;
+import kr.hhplus.be.server.domain.balance.model.Balance;
+import kr.hhplus.be.server.domain.balance.service.BalanceService;
 import kr.hhplus.be.server.presentation.api.balance.dto.BalanceRequest;
 import kr.hhplus.be.server.presentation.api.balance.dto.BalanceResponse;
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

@@ -3,7 +3,6 @@ package kr.hhplus.be.server.presentation.api.balance.dto;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.Positive;
 import kr.hhplus.be.server.application.balance.BalanceCommand;
-import kr.hhplus.be.server.domain.user.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

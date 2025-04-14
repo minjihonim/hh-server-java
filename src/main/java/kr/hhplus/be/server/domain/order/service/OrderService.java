@@ -1,5 +1,7 @@
-package kr.hhplus.be.server.domain.order;
+package kr.hhplus.be.server.domain.order.service;
 
+import kr.hhplus.be.server.domain.order.model.Order;
+import kr.hhplus.be.server.domain.order.repository.OrderRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

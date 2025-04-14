@@ -1,6 +1,9 @@
-package kr.hhplus.be.server.domain.balance;
+package kr.hhplus.be.server.domain.balance.service;
 
-import kr.hhplus.be.server.presentation.api.balance.dto.BalanceResponse;
+import kr.hhplus.be.server.domain.balance.model.Balance;
+import kr.hhplus.be.server.domain.balance.model.BalanceHistory;
+import kr.hhplus.be.server.domain.balance.repository.BalanceHistoryRepository;
+import kr.hhplus.be.server.domain.balance.repository.BalanceRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

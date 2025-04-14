@@ -1,4 +1,4 @@
-package kr.hhplus.be.server.domain.coupon;
+package kr.hhplus.be.server.domain.coupon.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Getter
-public class CouponDetail {
+public class Coupon {
 
     @Id
     private Long id;
@@ -28,7 +28,11 @@ public class CouponDetail {
 
     private LocalDate expirationDay;
 
-    public CouponDetail mockData() {
+    private LocalDateTime registerDate;
+
+    private LocalDateTime updateDate;
+
+    public Coupon mockData() {
         this.id = 1L;
         this.name = "할인쿠폰1";
         this.discount = 10;

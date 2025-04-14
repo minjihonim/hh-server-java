@@ -1,7 +1,7 @@
 package kr.hhplus.be.server.application.balance;
 
-import kr.hhplus.be.server.domain.balance.BalanceService;
-import kr.hhplus.be.server.domain.user.UserService;
+import kr.hhplus.be.server.domain.balance.service.BalanceService;
+import kr.hhplus.be.server.domain.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

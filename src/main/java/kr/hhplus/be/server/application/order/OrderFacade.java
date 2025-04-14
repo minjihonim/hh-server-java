@@ -1,12 +1,12 @@
 package kr.hhplus.be.server.application.order;
 
-import kr.hhplus.be.server.domain.order.Order;
-import kr.hhplus.be.server.domain.order.OrderService;
-import kr.hhplus.be.server.domain.payment.Payment;
-import kr.hhplus.be.server.domain.payment.PaymentService;
+import kr.hhplus.be.server.domain.order.model.Order;
+import kr.hhplus.be.server.domain.order.service.OrderService;
+import kr.hhplus.be.server.domain.payment.model.Payment;
+import kr.hhplus.be.server.domain.payment.service.PaymentService;
 import kr.hhplus.be.server.domain.product.Product;
 import kr.hhplus.be.server.domain.product.ProductService;
-import kr.hhplus.be.server.domain.user.UserService;
+import kr.hhplus.be.server.domain.user.service.UserService;
 import kr.hhplus.be.server.presentation.api.product.dto.ProductRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

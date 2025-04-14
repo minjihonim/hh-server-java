@@ -1,6 +1,10 @@
 package kr.hhplus.be.server.unit;
 
-import kr.hhplus.be.server.domain.coupon.*;
+import kr.hhplus.be.server.domain.coupon.repository.CouponDetailRepository;
+import kr.hhplus.be.server.domain.coupon.repository.CouponRepository;
+import kr.hhplus.be.server.domain.coupon.service.CouponService;
+import kr.hhplus.be.server.domain.coupon.model.Coupon;
+import kr.hhplus.be.server.domain.coupon.model.IssuedCoupon;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -29,12 +33,12 @@ public class CouponUnitTest {
         // given
         Long userId = 1L;
         Long couponId = 1L;
-        Coupon coupon = new Coupon(userId, couponId);
-        CouponDetail couponDetail = new CouponDetail().mockData();
+        IssuedCoupon issuedCoupon = new IssuedCoupon(userId, couponId);
+        Coupon coupon = new Coupon().mockData();
         // when
-        when(couponDetailRepository.getCouponInfo(coupon.getCouponId())).thenReturn(couponDetail);
-        when(couponRepository.save(coupon)).thenReturn(true);
-        boolean result = couponService.getCoupon(coupon);
+        when(couponDetailRepository.getCouponInfo(issuedCoupon.getCouponId())).thenReturn(coupon);
+        when(couponRepository.save(issuedCoupon)).thenReturn(true);
+        boolean result = couponService.getCoupon(issuedCoupon);
 
         // then
         assertEquals(true, result);
