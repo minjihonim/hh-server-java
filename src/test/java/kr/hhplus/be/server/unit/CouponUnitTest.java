@@ -36,8 +36,8 @@ public class CouponUnitTest {
         IssuedCoupon issuedCoupon = new IssuedCoupon(userId, couponId);
         Coupon coupon = new Coupon().mockData();
         // when
-        when(couponDetailRepository.getCouponInfo(issuedCoupon.getCouponId())).thenReturn(coupon);
-        when(couponRepository.save(issuedCoupon)).thenReturn(true);
+        when(couponRepository.getCouponInfo(issuedCoupon.getCouponId())).thenReturn(coupon);
+        when(couponDetailRepository.save(issuedCoupon)).thenReturn(true);
         boolean result = couponService.getCoupon(issuedCoupon);
 
         // then

@@ -16,12 +16,11 @@ public class CouponService {
 
     public boolean getCoupon(IssuedCoupon issuedCoupon) {
         // 쿠폰 수량 및 존재여부 확인
-        Coupon couponInfo = couponDetailRepository.getCouponInfo(issuedCoupon.getCouponId());
+        Coupon couponInfo = couponRepository.getCouponInfo(issuedCoupon.getCouponId());
         if(couponInfo != null && (couponInfo.getIssuedQuantity() < couponInfo.getMaxQuantity())) {
             // 최대쿠폰 수량 보다 발행된 수량이 적으므로 발급 가능
-            if(couponRepository.save(issuedCoupon)) {
-                return true;
-            }
+            couponDetailRepository.save(issuedCoupon);
+            return true;
         }
         return false;
     }

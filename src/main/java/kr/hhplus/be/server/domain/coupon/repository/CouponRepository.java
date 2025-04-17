@@ -1,12 +1,9 @@
 package kr.hhplus.be.server.domain.coupon.repository;
 
-import kr.hhplus.be.server.domain.coupon.model.IssuedCoupon;
-import org.springframework.stereotype.Repository;
+import kr.hhplus.be.server.domain.coupon.model.Coupon;
 
-@Repository
-public class CouponRepository {
+public interface CouponRepository {
 
-    public boolean save(IssuedCoupon issuedCoupon) {
-        return true;
-    }
+    Coupon getCouponInfo(Long couponId);
+
 }

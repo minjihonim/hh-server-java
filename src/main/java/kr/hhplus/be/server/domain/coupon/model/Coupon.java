@@ -1,17 +1,15 @@
 package kr.hhplus.be.server.domain.coupon.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-@Entity
 @Getter
+@NoArgsConstructor
 public class Coupon {
 
-    @Id
     private Long id;
 
     private String name;
@@ -31,6 +29,15 @@ public class Coupon {
     private LocalDateTime registerDate;
 
     private LocalDateTime updateDate;
+
+    public Coupon(Long id, String name, int discount, Integer maxQuantity, Integer issuedQuantity, LocalDate expirationDay) {
+        this.id = id;
+        this.name = name;
+        this.discount = discount;
+        this.maxQuantity = maxQuantity;
+        this.issuedQuantity = issuedQuantity;
+        this.expirationDay = expirationDay;
+    }
 
     public Coupon mockData() {
         this.id = 1L;
