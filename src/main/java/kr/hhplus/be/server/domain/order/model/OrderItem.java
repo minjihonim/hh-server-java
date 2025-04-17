@@ -1,4 +1,4 @@
-package kr.hhplus.be.server.domain.payment.model;
+package kr.hhplus.be.server.domain.order.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -10,29 +10,22 @@ import java.time.LocalDateTime;
 
 @Entity
 @Getter
-@NoArgsConstructor
 @AllArgsConstructor
-public class Payment {
+@NoArgsConstructor
+public class OrderItem {
+
     @Id
     private Long id;
 
-    private Long userId;
-
     private Long orderId;
 
+    private Long productOptionId;
+
+    private int quantity;
+
     private Long amount;
-
-    private String status;
-
-    private String failReason;
 
     private LocalDateTime registerDate;
 
     private LocalDateTime updateDate;
-
-    public Payment(Long orderId, Long amount, String stauts) {
-        this.orderId = orderId;
-        this.amount = amount;
-        this.status = stauts;
-    }
 }

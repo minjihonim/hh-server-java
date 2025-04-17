@@ -1,5 +1,6 @@
 package kr.hhplus.be.server.domain.product;
 
+import kr.hhplus.be.server.domain.product.model.Product;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;

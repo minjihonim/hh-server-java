@@ -1,9 +1,8 @@
 package kr.hhplus.be.server.presentation.api.product;
 
 import io.swagger.v3.oas.annotations.Operation;
-import kr.hhplus.be.server.domain.product.Product;
+import kr.hhplus.be.server.domain.product.model.Product;
 import kr.hhplus.be.server.domain.product.ProductService;
-import kr.hhplus.be.server.presentation.api.product.dto.ProductRequest;
 import kr.hhplus.be.server.presentation.api.product.dto.ProductResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;

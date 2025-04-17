@@ -5,6 +5,7 @@ import kr.hhplus.be.server.application.order.OrderCommand;
 import kr.hhplus.be.server.presentation.api.product.dto.ProductRequest;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 
 import java.util.ArrayList;
 import java.util.List;

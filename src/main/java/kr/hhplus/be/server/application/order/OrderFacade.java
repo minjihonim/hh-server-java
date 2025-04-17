@@ -4,7 +4,7 @@ import kr.hhplus.be.server.domain.order.model.Order;
 import kr.hhplus.be.server.domain.order.service.OrderService;
 import kr.hhplus.be.server.domain.payment.model.Payment;
 import kr.hhplus.be.server.domain.payment.service.PaymentService;
-import kr.hhplus.be.server.domain.product.Product;
+import kr.hhplus.be.server.domain.product.model.Product;
 import kr.hhplus.be.server.domain.product.ProductService;
 import kr.hhplus.be.server.domain.user.service.UserService;
 import kr.hhplus.be.server.presentation.api.product.dto.ProductRequest;

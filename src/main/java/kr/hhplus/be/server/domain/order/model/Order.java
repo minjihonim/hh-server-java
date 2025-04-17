@@ -19,25 +19,23 @@ public class Order {
 
     private Long userId;
 
-    private Long price;
+    private Long amount;
 
     private Long couponId;
 
-    private Long finalPrice;
+    private Long finalAmount;
 
     private Long paymentId;
-
-    private Long productId;
 
     private LocalDateTime registerDate;
 
     private LocalDateTime updateDate;
 
-    public Order(Long userId, Long orderPrice, Long couponId, Long finalOrderPrice) {
+    public Order(Long userId, Long orderAmount, Long couponId, Long finalOrderAmount) {
         this.userId = userId;
-        this.price = orderPrice;
+        this.amount = orderAmount;
         this.couponId = couponId;
-        this.finalPrice = finalOrderPrice;
+        this.finalAmount = finalOrderAmount;
     }
 
 }

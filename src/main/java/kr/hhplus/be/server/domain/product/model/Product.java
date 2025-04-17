@@ -1,14 +1,18 @@
-package kr.hhplus.be.server.domain.product;
+package kr.hhplus.be.server.domain.product.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import kr.hhplus.be.server.presentation.api.product.dto.ProductResponse;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Getter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Product {
 
     @Id
@@ -23,10 +27,6 @@ public class Product {
     private LocalDateTime registerDate;
 
     private LocalDateTime updateDate;
-
-    public Product() {
-
-    }
 
     public ProductResponse fromProduct(Product product) {
         ProductResponse productResponse = new ProductResponse();
