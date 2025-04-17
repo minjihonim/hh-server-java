@@ -93,8 +93,3 @@ CREATE TABLE `payment` (
                            `register_date` datetime,
                            `update_date` datetime
 );
-
--- insert
-
-INSERT INTO `user` (id, name, register_date) VALUES (1, '홍길동', NOW());
-INSERT INTO `balance` (user_id, amount, register_date) VALUES (1, 10, NOW());
