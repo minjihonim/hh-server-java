@@ -16,12 +16,13 @@ public class BalanceRepositoryImpl implements BalanceRepository {
     @Override
     public Balance getUserBalance(Long userId) {
         BalanceEntity balance = balanceJpaRepository.findById(userId).get();
-        return new Balance(balance.getUserId(), balance.getAmount());
+        return new Balance(balance.getUserId(), balance.getAmount(), balance.getRegisterDate());
     }
 
     @Override
     public void save(Balance userBalance) {
-        BalanceEntity balanceEntity = new BalanceEntity(userBalance.getUserId(), userBalance.getAmount(), userBalance.getUpdateDate());
+        BalanceEntity balanceEntity = new BalanceEntity(userBalance.getUserId(), userBalance.getAmount(),
+                userBalance.getRegisterDate(), userBalance.getUpdateDate());
         balanceJpaRepository.save(balanceEntity);
     }
 }

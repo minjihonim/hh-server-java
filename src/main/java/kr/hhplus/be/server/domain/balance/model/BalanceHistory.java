@@ -24,8 +24,6 @@ public class BalanceHistory {
         this.userId = balance.getUserId();
         this.amount = balance.getAmount();
         this.type = BalanceType.CHARGE;
-        this.registerDate = balance.getRegisterDate();
-        this.updateDate = balance.getUpdateDate();
     }
 
     public BalanceHistory() {

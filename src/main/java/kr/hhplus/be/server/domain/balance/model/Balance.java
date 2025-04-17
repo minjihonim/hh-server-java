@@ -26,14 +26,14 @@ public class Balance {
         this.updateDate = LocalDateTime.now();
     }
 
-    public Balance(Long userId, Long amount) {
+    public Balance(Long userId, Long amount, LocalDateTime registerDate) {
         this.userId = userId;
         this.amount = amount;
+        this.registerDate = registerDate;
     }
 
     public void charge(Long amount) {
         this.amount = this.amount + amount;
-        this.registerDate = LocalDateTime.now();
         this.updateDate = LocalDateTime.now();
     }
 

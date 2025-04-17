@@ -1,7 +1,6 @@
 package kr.hhplus.be.server.infrastructure.balance.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import kr.hhplus.be.server.domain.balance.type.BalanceType;
 import lombok.NoArgsConstructor;
 
@@ -9,9 +8,11 @@ import java.time.LocalDateTime;
 
 @Entity
 @NoArgsConstructor
+@Table(name = "balance_history")
 public class BalanceHistoryEntity {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private Long userId;
@@ -29,6 +30,6 @@ public class BalanceHistoryEntity {
         this.userId = userId;
         this.amount = amount;
         this.type = balanceType;
-        this.updateDate = now;
+        this.registerDate = now;
     }
 }

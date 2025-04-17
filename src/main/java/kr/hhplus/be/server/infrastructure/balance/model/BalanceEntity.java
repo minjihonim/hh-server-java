@@ -32,17 +32,11 @@ public class BalanceEntity {
         this.updateDate = LocalDateTime.now();
     }
 
-    public BalanceEntity(Long userId, Long amount, LocalDateTime updateDate) {
+    public BalanceEntity(Long userId, Long amount, LocalDateTime registerDate, LocalDateTime updateDate) {
         this.userId = userId;
         this.amount = amount;
+        this.registerDate = registerDate;
         this.updateDate = updateDate;
-    }
-
-
-    public void charge(Long amount) {
-        this.amount = this.amount + amount;
-        this.registerDate = LocalDateTime.now();
-        this.updateDate = LocalDateTime.now();
     }
 
 }
