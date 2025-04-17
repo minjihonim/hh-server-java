@@ -30,7 +30,7 @@ CREATE TABLE `coupon` (
                           `max_quantity` int,
                           `issued_quantity` int,
                           `expiration_day` date,
-                          `register_date` datetime,
+                          `register_date` datetime NOT NULL ,
                           `update_date` datetime
 );
 
@@ -39,7 +39,7 @@ CREATE TABLE `issued_coupon` (
                                  `user_id` bigint,
                                  `coupon_id` bigint,
                                  `used_date` date,
-                                 `register_date` datetime,
+                                 `register_date` datetime NOT NULL,
                                  `update_date` datetime
 );
 
@@ -98,3 +98,8 @@ CREATE TABLE `payment` (
 
 INSERT INTO `user` (id, name, register_date) VALUES (1, '홍길동', NOW());
 INSERT INTO `balance` (user_id, amount, register_date) VALUES (1, 10, NOW());
+
+-- coupon
+ -- 쿠폰 발급 성공용 데이터
+INSERT INTO `coupon` (id, name, discount, start_time, end_time, max_quantity, issued_quantity, expiration_day, register_date)
+VALUES (1, "10% 할인쿠폰", 10, '20250401', '20250430', 50, 0, '20250430', NOW())

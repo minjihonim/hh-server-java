@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Repository
 @RequiredArgsConstructor
@@ -21,5 +22,10 @@ public class CouponDetailRepositoryImpl implements CouponDetailRepository {
                 LocalDateTime.now());
         couponDetailJpaRepository.save(issuedCouponEntity);
         return true;
+    }
+
+    @Override
+    public List<IssuedCoupon> getUserIssuedCoupon(Long userId) {
+        return null;
     }
 }
