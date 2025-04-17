@@ -1,6 +1,7 @@
 package kr.hhplus.be.server.domain.product;
 
 import kr.hhplus.be.server.domain.product.model.Product;
+import kr.hhplus.be.server.domain.product.model.ProductOption;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -13,7 +14,7 @@ public class ProductRepository {
         return result;
     }
 
-    public Integer getProductCnt(Product product) {
+    public Integer getProductCnt(ProductOption productOption) {
         return 1;
     }
 }

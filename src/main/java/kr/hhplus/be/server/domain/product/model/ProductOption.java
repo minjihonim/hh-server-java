@@ -26,4 +26,10 @@ public class ProductOption {
     private LocalDateTime registerDate;
 
     private LocalDateTime updateDate;
+
+    public ProductOption(Long productId, String name, int quantity) {
+        this.productId = productId;
+        this.name = name;
+        this.quantity = quantity;
+    }
 }

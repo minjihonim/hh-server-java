@@ -28,7 +28,7 @@ public class BalanceController {
     @Operation(summary = "사용자 잔액 조회")
     public BalanceResponse getPoint(@PathVariable("id") Long id) {
         Balance balance = balanceService.getPoint(id);
-        BalanceResponse response = balance.fromBalance(balance);
+        BalanceResponse response = new BalanceResponse("0000", "조회성공", balance.getUserId(), balance.getAmount());
         return response;
     }
 

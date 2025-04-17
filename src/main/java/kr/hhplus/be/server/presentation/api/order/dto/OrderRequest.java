@@ -2,10 +2,10 @@ package kr.hhplus.be.server.presentation.api.order.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import kr.hhplus.be.server.application.order.OrderCommand;
+import kr.hhplus.be.server.domain.product.model.ProductOption;
 import kr.hhplus.be.server.presentation.api.product.dto.ProductRequest;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,6 +38,10 @@ public class OrderRequest {
         command.setOrderPrice(orderPrice);
         command.setCouponId(couponId);
         command.setFinalOrderPrice(finalOrderPrice);
+        for(ProductRequest prd : productList) {
+            ProductOption prdOption = new ProductOption(prd.getId(), prd.getName(), prd.getQuantity());
+            command.getProductList().add(prdOption);
+        }
         return command;
     }
 }

@@ -19,19 +19,11 @@ public class BalanceResponse {
     @Schema(description = "사용자 고유 아이디", example = "1")
     private Long userId;
     @Schema(description = "사용자 보유 금액", example = "1200")
-    private Long balance;
+    private Long amount;
 
     public BalanceResponse(Long id, long l) {
         this.userId = id;
-        this.balance = l;
-    }
-
-    public BalanceResponse mockData(Long id) {
-        return new BalanceResponse(id, 10000L);
-    }
-
-    public BalanceResponse mockCharge(BalanceRequest req) {
-        return new BalanceResponse(req.getUserId(), 10000L + req.getAmount());
+        this.amount = l;
     }
 
 }

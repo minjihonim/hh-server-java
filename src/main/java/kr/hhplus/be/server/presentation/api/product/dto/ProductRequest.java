@@ -13,6 +13,7 @@ public class ProductRequest {
     private String name;
     private long price;
     private String desciption;
+    private int quantity;
 
     public Product toProduct() {
         Product product = new Product(id, name, price, desciption);

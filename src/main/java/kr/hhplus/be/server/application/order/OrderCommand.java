@@ -3,9 +3,10 @@ package kr.hhplus.be.server.application.order;
 import kr.hhplus.be.server.domain.order.model.Order;
 import kr.hhplus.be.server.domain.payment.model.Payment;
 import kr.hhplus.be.server.domain.payment.type.PaymentType;
-import kr.hhplus.be.server.presentation.api.product.dto.ProductRequest;
+import kr.hhplus.be.server.domain.product.model.ProductOption;
 import lombok.Data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -15,7 +16,7 @@ public class OrderCommand {
 
     private Long userId;
 
-    private List<ProductRequest> productList;
+    private List<ProductOption> productList = new ArrayList<>();
 
     private Long orderPrice;
 

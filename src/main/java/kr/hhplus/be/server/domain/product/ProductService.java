@@ -1,6 +1,7 @@
 package kr.hhplus.be.server.domain.product;
 
 import kr.hhplus.be.server.domain.product.model.Product;
+import kr.hhplus.be.server.domain.product.model.ProductOption;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -18,12 +19,12 @@ public class ProductService {
 
     /**
      * 상품 데이터 확인
-     * @param product
+     * @param productOption
      */
-    public Integer getProductCnt(Product product) {
-        Integer checkCnt = productRepository.getProductCnt(product);
+    public Integer getProductCnt(ProductOption productOption) {
+        Integer checkCnt = productRepository.getProductCnt(productOption);
         if(checkCnt < 1) {
-            throw new RuntimeException("물품이 존재하지 않습니다.");
+            return 0;
         }
         return checkCnt;
     }
