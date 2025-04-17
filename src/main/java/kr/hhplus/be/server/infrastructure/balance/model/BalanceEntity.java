@@ -2,12 +2,14 @@ package kr.hhplus.be.server.infrastructure.balance.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.Getter;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Getter
+@Table(name = "balance")
 public class BalanceEntity {
 
     @Id
