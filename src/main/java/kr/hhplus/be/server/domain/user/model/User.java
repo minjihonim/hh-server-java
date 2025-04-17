@@ -1,16 +1,12 @@
 package kr.hhplus.be.server.domain.user.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 import lombok.Getter;
 
 import java.time.LocalDateTime;
 
-@Entity
 @Getter
 public class User {
 
-    @Id
     private Long id;
 
     private String name;
@@ -25,5 +21,10 @@ public class User {
 
     public User() {
 
+    }
+
+    public User(Long id, String name) {
+        this.id = id;
+        this.name = name;
     }
 }

@@ -10,11 +10,10 @@ import org.springframework.stereotype.Service;
 public class UserService {
     private final UserRepository userRepository;
     // 유저 정보 확인
-    public boolean checkUserInfo(long userId) throws Exception{
+    public void checkUserInfo(long userId) {
         User checkUser = userRepository.getUserInfo(userId);
-        if(checkUser.getId() == null) {
+        if(checkUser == null || checkUser.getId() == null) {
             throw new RuntimeException("존재하지 않는 유저입니다.");
         }
-        return true;
     }
 }

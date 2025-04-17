@@ -1,18 +1,13 @@
 package kr.hhplus.be.server.domain.balance.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 import kr.hhplus.be.server.domain.balance.type.BalanceType;
 import lombok.Getter;
 
 import java.time.LocalDateTime;
 
-@Entity
 @Getter
 public class BalanceHistory {
 
-    @Id
     private Long id;
 
     private Long userId;

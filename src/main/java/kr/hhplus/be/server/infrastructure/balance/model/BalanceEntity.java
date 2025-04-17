@@ -1,16 +1,16 @@
-package kr.hhplus.be.server.domain.balance.model;
+package kr.hhplus.be.server.infrastructure.balance.model;
 
-import lombok.AllArgsConstructor;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
+@Entity
 @Getter
-@AllArgsConstructor
-@NoArgsConstructor
-public class Balance {
+public class BalanceEntity {
 
+    @Id
     private Long userId;
 
     private Long amount;
@@ -19,17 +19,23 @@ public class Balance {
 
     private LocalDateTime updateDate;
 
-    public Balance(Long userId) {
+    public BalanceEntity() {
+
+    }
+
+    public BalanceEntity(Long userId) {
         this.userId = userId;
         this.amount = 0L;
         this.registerDate = LocalDateTime.now();
         this.updateDate = LocalDateTime.now();
     }
 
-    public Balance(Long userId, Long amount) {
+    public BalanceEntity(Long userId, Long amount, LocalDateTime updateDate) {
         this.userId = userId;
         this.amount = amount;
+        this.updateDate = updateDate;
     }
+
 
     public void charge(Long amount) {
         this.amount = this.amount + amount;
@@ -38,3 +44,4 @@ public class Balance {
     }
 
 }
+

@@ -1,12 +1,8 @@
 package kr.hhplus.be.server.domain.user.repository;
 
 import kr.hhplus.be.server.domain.user.model.User;
-import org.springframework.stereotype.Repository;
 
-@Repository
-public class UserRepository {
+public interface UserRepository {
 
-    public User getUserInfo(Long userId) throws Exception {
-        return null;
-    }
+    User getUserInfo(Long userId);
 }
