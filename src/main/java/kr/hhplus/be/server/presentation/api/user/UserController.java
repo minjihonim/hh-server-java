@@ -21,7 +21,7 @@ public class UserController {
      */
     @GetMapping("/coupon/{id}")
     public UserCouponResponse getUserCoupon(@PathVariable Long id) {
-        UserCouponResponse userCouponResponse = new UserCouponResponse();
         UserCommand userCouponInfo = userFacade.getUserCoupon(id);
+        return new UserCouponResponse().makeResult(userCouponInfo);
     }
 }

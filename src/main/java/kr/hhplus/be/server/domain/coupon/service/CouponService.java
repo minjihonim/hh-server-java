@@ -8,7 +8,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -29,7 +31,13 @@ public class CouponService {
         return false;
     }
 
-    public List<IssuedCoupon> getUserIssuedCoupon(Long userId) {
-        return couponDetailRepository.getUserIssuedCoupon(userId);
+    public List<Coupon> getUserIssuedCoupon(Long userId) {
+        // 유저가 발급 받은 쿠폰 조회
+        List<IssuedCoupon> userIssuedCouponList = couponDetailRepository.getUserIssuedCoupon(userId);
+        // 쿠폰정보 조회
+        List<Long> varCouponIdList = userIssuedCouponList.stream()
+                .map(IssuedCoupon::getCouponId)
+                .toList();
+        return couponRepository.getCouponInfoList(varCouponIdList);
     }
 }

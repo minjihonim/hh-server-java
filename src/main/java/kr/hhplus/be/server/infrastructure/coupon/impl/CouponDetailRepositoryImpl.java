@@ -5,9 +5,11 @@ import kr.hhplus.be.server.domain.coupon.repository.CouponDetailRepository;
 import kr.hhplus.be.server.infrastructure.coupon.jpa.CouponDetailJpaRepository;
 import kr.hhplus.be.server.infrastructure.coupon.model.IssuedCouponEntity;
 import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
+import java.util.Collections;
 import java.util.List;
 
 @Repository
@@ -15,6 +17,7 @@ import java.util.List;
 public class CouponDetailRepositoryImpl implements CouponDetailRepository {
 
     private final CouponDetailJpaRepository couponDetailJpaRepository;
+    private final ModelMapper modelMapper = new ModelMapper();
 
     @Override
     public boolean save(IssuedCoupon issuedCoupon) {
@@ -26,6 +29,7 @@ public class CouponDetailRepositoryImpl implements CouponDetailRepository {
 
     @Override
     public List<IssuedCoupon> getUserIssuedCoupon(Long userId) {
-        return null;
+        List<IssuedCouponEntity> userIssuedCoupon = couponDetailJpaRepository.findByUserId(userId);
+        return Collections.singletonList(modelMapper.map(userIssuedCoupon, IssuedCoupon.class));
     }
 }
