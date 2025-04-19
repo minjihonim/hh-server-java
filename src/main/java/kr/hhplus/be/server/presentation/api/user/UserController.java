@@ -1,13 +1,15 @@
 package kr.hhplus.be.server.presentation.api.user;
 
-import kr.hhplus.be.server.application.user.UserCommand;
 import kr.hhplus.be.server.application.user.UserFacade;
+import kr.hhplus.be.server.domain.coupon.model.Coupon;
 import kr.hhplus.be.server.presentation.api.user.dto.UserCouponResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/user")
@@ -21,7 +23,7 @@ public class UserController {
      */
     @GetMapping("/coupon/{id}")
     public UserCouponResponse getUserCoupon(@PathVariable Long id) {
-        UserCommand userCouponInfo = userFacade.getUserCoupon(id);
-        return new UserCouponResponse().makeResult(userCouponInfo);
+        List<Coupon> userCouponList = userFacade.getUserCoupon(id);
+        return new UserCouponResponse().fromCoupon(userCouponList, id);
     }
 }
