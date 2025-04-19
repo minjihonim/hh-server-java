@@ -1,12 +1,22 @@
 package kr.hhplus.be.server.domain.coupon.repository;
 
-import kr.hhplus.be.server.domain.coupon.model.IssuedCoupon;
-import org.springframework.stereotype.Repository;
+import kr.hhplus.be.server.domain.coupon.model.Coupon;
 
-@Repository
-public class CouponRepository {
+import java.util.List;
 
-    public boolean save(IssuedCoupon issuedCoupon) {
-        return true;
-    }
+public interface CouponRepository {
+
+    /**
+     * 쿠폰 정보 조회
+     * @param couponId
+     * @return
+     */
+    Coupon getCouponInfo(Long couponId);
+
+    /**
+     * 쿠폰 정보 리스트 조회
+     * @param varCouponIdList
+     * @return
+     */
+    List<Coupon> getCouponInfoList(List<Long> varCouponIdList);
 }

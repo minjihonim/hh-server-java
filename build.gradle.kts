@@ -41,6 +41,13 @@ dependencies {
 	// https://mvnrepository.com/artifact/org.projectlombok/lombok
 	implementation("org.projectlombok:lombok:1.18.38")
 
+	// queryDSL
+	// https://mvnrepository.com/artifact/com.querydsl/querydsl-jpa
+	implementation("com.querydsl:querydsl-jpa:5.0.0")
+
+	// https://mvnrepository.com/artifact/org.modelmapper/modelmapper
+	implementation("org.modelmapper:modelmapper:3.2.1")
+
     // DB
 	runtimeOnly("com.mysql:mysql-connector-j")
 

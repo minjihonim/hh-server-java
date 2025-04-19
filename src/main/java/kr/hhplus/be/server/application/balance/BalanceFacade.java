@@ -17,7 +17,7 @@ public class BalanceFacade {
      * @param command
      * @return
      */
-    public void charge(BalanceCommand command) throws Exception {
+    public void charge(BalanceCommand command) {
         // 사용자 조회
         userService.checkUserInfo(command.getUserId());
         // 잔액 충전
